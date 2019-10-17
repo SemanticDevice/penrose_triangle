@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #define WIN_WIDTH_PX (640)
-#define WIN_HEIGHT_PX (480)
+#define WIN_HEIGHT_PX (640)
 
 #define FPS (60.0f)
 
@@ -100,6 +100,13 @@ static void Draw() {
     redraw = false;
     al_clear_to_color(al_map_rgb(183, 173, 160));
 
+    float vr[] = {340, 9, 121, 392, 181, 392, 343, 113, 563, 498, 595, 443};
+    float vg[] = {344, 113, 314, 164, 474, 443, 33, 443, 64, 498, 562, 498};
+    float vb[] = {340, 9, 276, 9, 33, 443, 474, 443, 444, 392, 121, 392};
+
+    al_draw_filled_polygon(vr, 6, al_map_rgb(255, 0, 0));
+    al_draw_filled_polygon(vg, 6, al_map_rgb(0, 255, 0));
+    al_draw_filled_polygon(vb, 6, al_map_rgb(0, 0, 255));
     al_flip_display();
   }
 }
