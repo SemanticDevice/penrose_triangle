@@ -107,83 +107,12 @@ static void Draw() {
     al_draw_filled_polygon(vr, 6, al_map_rgb(255, 0, 0));
     al_draw_filled_polygon(vg, 6, al_map_rgb(0, 255, 0));
     al_draw_filled_polygon(vb, 6, al_map_rgb(0, 0, 255));
+
     al_flip_display();
   }
 }
 
-static void ProcessInput(ALLEGRO_EVENT *ev) {
-#if 0  
-  switch (ev->type) {
-    case ALLEGRO_EVENT_KEY_DOWN:
-      switch (ev->keyboard.keycode) {
-        case ALLEGRO_KEY_UP:
-        case ALLEGRO_KEY_W:
-          key[KEY_UP_IDX] = true;
-          // Only react to a key going down if none of the other keys are down
-          // and only when game is not updating (i.e. between turns)
-          if (!key[KEY_DOWN_IDX] && !key[KEY_LEFT_IDX] && !key[KEY_RIGHT_IDX] &&
-              !Game_IsUpdating(&game)) {
-            dir = Board_Direction_Up;
-          }
-          break;
-        case ALLEGRO_KEY_DOWN:
-        case ALLEGRO_KEY_S:
-          key[KEY_DOWN_IDX] = true;
-          // Only react to a key going down if none of the other keys are down
-          // and only when game is not updating (i.e. between turns)
-          if (!key[KEY_UP_IDX] && !key[KEY_LEFT_IDX] && !key[KEY_RIGHT_IDX] &&
-              !Game_IsUpdating(&game)) {
-            dir = Board_Direction_Down;
-          }
-          break;
-        case ALLEGRO_KEY_LEFT:
-        case ALLEGRO_KEY_A:
-          key[KEY_LEFT_IDX] = true;
-          // Only react to a key going down if none of the other keys are down
-          // and only when game is not updating (i.e. between turns)
-          if (!key[KEY_UP_IDX] && !key[KEY_DOWN_IDX] && !key[KEY_RIGHT_IDX] &&
-              !Game_IsUpdating(&game)) {
-            dir = Board_Direction_Left;
-          }
-          break;
-        case ALLEGRO_KEY_RIGHT:
-        case ALLEGRO_KEY_D:
-          key[KEY_RIGHT_IDX] = true;
-          // Only react to a key going down if none of the other keys are down
-          // and only when game is not updating (i.e. between turns)
-          if (!key[KEY_UP_IDX] && !key[KEY_DOWN_IDX] && !key[KEY_LEFT_IDX] &&
-              !Game_IsUpdating(&game)) {
-            dir = Board_Direction_Right;
-          }
-          break;
-      }
-      break;
-    case ALLEGRO_EVENT_KEY_UP:
-      switch (ev->keyboard.keycode) {
-        case ALLEGRO_KEY_UP:
-        case ALLEGRO_KEY_W:
-          key[KEY_UP_IDX] = false;
-          break;
-        case ALLEGRO_KEY_DOWN:
-        case ALLEGRO_KEY_S:
-          key[KEY_DOWN_IDX] = false;
-          break;
-        case ALLEGRO_KEY_LEFT:
-        case ALLEGRO_KEY_A:
-          key[KEY_LEFT_IDX] = false;
-          break;
-        case ALLEGRO_KEY_RIGHT:
-        case ALLEGRO_KEY_D:
-          key[KEY_RIGHT_IDX] = false;
-          break;
-        case ALLEGRO_KEY_ESCAPE:
-          doexit = true;
-          break;
-      }
-      break;
-  }
-#endif
-}
+static void ProcessInput(ALLEGRO_EVENT *ev) {}
 
 static void Update(double dt, ALLEGRO_EVENT *ev) {
   static double updateTimer = 0.0;
